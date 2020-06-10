@@ -4,7 +4,7 @@ import ReactDom from 'react-dom'
 
 //Crear componente
 const App = () => {
-    return <div>Hola alfonso</div>
+    return <div>Hola amigos</div>
 }
 
 //Renderizado de componente
