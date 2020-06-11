@@ -4,7 +4,7 @@ class Regards extends React.Component{
     constructor(props){
         super()
     }
-
+//este es un comentario
     render(){
         return (
             <div>
