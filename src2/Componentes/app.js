@@ -13,7 +13,7 @@ class App extends React.Component{
             commentText: '',
             name: ''
         }
-
+        
         this.addComment = this.addComment.bind(this)
         this.deleteComment = this.deleteComment.bind(this)
     }
@@ -21,22 +21,19 @@ class App extends React.Component{
     addComment(){
         let comment = {
             userAvatar: Faker.image.avatar(),
-            //{*name: Faker.name.firstName(), *}
             name: this.state.name,
             date: Date.now().toLocaleString(),
-            //{*comment: Faker.lorem.paragraph()*}
             comment: this.state.commentText
         }
-
         let copyComments = this.state.comments
         copyComments.push(comment)
         let copyState = {...this.state, comments: copyComments}
         this.setState(copyState)
-        this.setState({commentText: '', name: ''})
-        //copyState.push(comment)
-        //this.setState({comments: copyState})
+        this.setState({commentText: ''})
+        // copyState.push(comment)
+        // this.setState({comments: copyState})
     }
-    
+
     deleteComment(){
         let copyComments = this.state.comments
         copyComments.pop()
@@ -60,11 +57,11 @@ class App extends React.Component{
                 <Button func={this.addComment} text={'Comentar'}/>
                 <Button func={this.deleteComment} text={'Borrar'}/>
                 {
-                    this.state.comments.map((comment) => {
-                    return <Comments
+                    this.state.comments.map((comment) => { 
+                        return <Comments 
                             key={`comment_${comment.name}_${Date.now()}`}
-                            userAvatar={comment.userAvatar}
-                            name={comment.name}
+                            userAvatar={comment.userAvatar} 
+                            name={comment.name} 
                             date={comment.date}
                             comment={comment.comment}
                         />
